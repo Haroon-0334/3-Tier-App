@@ -20,11 +20,11 @@ jobs:
 
     - name: Copy files to EC2
       run: |
-        rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ ubuntu@3.87.88.251:/home/ubuntu/app
+        rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ ubuntu@52.91.3.193:/home/ubuntu/app
 
     - name: Deploy with Docker
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@3.87.88.251 << 'EOF'
+        ssh -o StrictHostKeyChecking=no ubuntu@52.91.3.193 << 'EOF'
         cd /home/ubuntu/app
         docker-compose down
         docker-compose up -d --build
